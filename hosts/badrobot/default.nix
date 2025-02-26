@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./hardware.nix
+    ./virtualization.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -28,9 +29,9 @@
   networking.hostName = "badrobot";
   networking.networkmanager.enable = true;
 
-  timt = {
+  time = {
     timeZone = "Asia/Tashkent";
-    time.hardwareClockInLocalTime = false;
+    hardwareClockInLocalTime = false;
   };
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -76,7 +77,7 @@
     initialPassword = "initialpassword";
     shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = ["wheel" "networkmanager" "podman"];
     packages = with pkgs; [
       wl-clipboard
       wofi
