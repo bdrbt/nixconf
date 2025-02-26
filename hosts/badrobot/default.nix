@@ -28,7 +28,10 @@
   networking.hostName = "badrobot";
   networking.networkmanager.enable = true;
 
-  time.timeZone = "Europe/Amsterdam";
+  timt = {
+    timeZone = "Asia/Tashkent";
+    time.hardwareClockInLocalTime = false;
+  };
 
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
